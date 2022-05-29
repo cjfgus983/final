@@ -21,6 +21,7 @@
         setTimeout(slideShow, 4000);   //함수를 4초마다 호출
 
         }
+
         let curPos = 0;
         let postion = 0;
         const IMAGE_WIDTH = 640;
@@ -60,20 +61,19 @@
         init();
     </script>
     <style>
-
             li{ list-style-type: none; }
 
-            #slideShow{position: relative;}
+            #slideShow{position: relative; }
 
             .slides{
               position: relative;
               display: flex;
+              justify-content: center;
               height: auto;
             }
 
 
-
-            .controller button{ position:absolute; background-color: transparent; color: black; text-align: center; border-radius: 50%; padding: 10px 20px; top: 50%; font-size: 1.3em; cursor: pointer; }
+            .controller button{ position:absolute; background-color: transparent; color: black; height: 60px; width: 60px; text-align: center; vertical-align: center; border-radius: 100px; padding: auto; top: 50%; font-size: 1.3em; cursor: pointer; }
 
             .controller button:hover{ background-color: rgba(128, 128, 128, 0.11); }
 
@@ -88,54 +88,39 @@
             }
 
             .next:hover{ transform: translateX(10px); }
-
-            .slide1{
-                background-image: url("static/이벤트 배너1.png");
-                background-size: cover;
-            }
         </style>
 </head>
 
         <section class="warp">
             <div id = "slideShow">
                 <div class="slides">
-                    <img class="slide1" src="static/이벤트 배너1.png" >
-                    <img class="slide1" src="static/이벤트 배너2.png">
-                    <img class="slide1" src="static/이벤트 배너3.png">
+                    <img class="slide1" src="static/이벤트 배너1.png" width="1000px">
+                    <img class="slide1" src="static/이벤트 배너2.png" width="1000px">
+                    <img class="slide1" src="static/이벤트 배너3.png" width="1000px">
                 </div>
-                <p class="controller">
-                    <button class="prev">&lang;</button>
-                    <button class="next">&rang;</button>
-                </p>
+
             </div>
 
                 <div class="box3-1">
                     <div class="box3-2"><a href="{{ url_for('question._list')}}"><img src="static/고민게시판.jpg" height="60px"></a></div>
-                    <div class="box3-2"><a href="{{ url_for('memo._list')}}"><img src="static/메모게시판.jpg" height="60px"></a></div>
+                    <div class="box3-2"><a href=""><img src="static/메모게시판.jpg" height="60px"></a></div>
                     <div class="box3-2"><a href=""><img src="static/자유게시판.jpg" height="60px"></a></div>
                 </div>
 
                 <div class="box3-1">
                     <div class="box3-3"><a href="https://www.16personalities.com/ko/%EB%AC%B4%EB%A3%8C-%EC%84%B1%EA%B2%A9-%EC%9C%A0%ED%98%95-%EA%B2%80%EC%82%AC"><img src="static/1)무료성격유형검사.jpg" width: 225px height="100px"></a></div>
-                    <div class="box3-3"><a href="https://www.16personalities.com/ko/%EB%AC%B4%EB%A3%8C-%EC%84%B1%EA%B2%A9-%EC%9C%A0%ED%98%95-%EA%B2%80%EC%82%AC"><img src="static/2)술버릇테스트.jpg" width: 225px height="100px"></a></div>
-                    <div class="box3-3"><a href="https://www.16personalities.com/ko/%EB%AC%B4%EB%A3%8C-%EC%84%B1%EA%B2%A9-%EC%9C%A0%ED%98%95-%EA%B2%80%EC%82%AC"><img src="static/3)오징어게임테스트.jpg" width: 225px height="100px"></a></div>
-                    <div class="box3-3"><a href="https://www.16personalities.com/ko/%EB%AC%B4%EB%A3%8C-%EC%84%B1%EA%B2%A9-%EC%9C%A0%ED%98%95-%EA%B2%80%EC%82%AC"><img src="static/4)플라워.jpg" width: 225px height="100px"></a></div>
+                    <div class="box3-3"><a href="https://ktestone.com/kapable.github.io/dringkingHabit/"><img src="static/2)술버릇테스트.jpg" width: 225px height="100px"></a></div>
+                    <div class="box3-3"><a href="https://ddooddoo.com/ko/games/squidgame/main/"><img src="static/3)오징어게임테스트.jpg" width: 225px height="100px"></a></div>
+                    <div class="box3-3"><a href="https://ktestone.com/kapable.github.io/flowerBTI/"><img src="static/4)플라워.jpg" width: 225px height="100px"></a></div>
 
                 </div>
                 <div class="box3-1">
-                    <div class="mainpageunderbox"></div>
-                    <div class="mainpageunderbox"></div>
-                    <div class="mainpageunderbox"></div>
-                    <div class="mainpageunderbox"></div>
+                    <div class="box3-3"><a href="https://mydohwa.forceteller.com/interactive/mydohwa"><img src="static/도화.jpg" width: 225px height="100px"></a></div>
+                    <div class="box3-3"><a href="https://decalcomanie.netlify.app/"><img src="static/동물.jpg" width: 225px height="100px"></a></div>
+                    <div class="box3-3"><a href="https://m.instazon.kr/page/mbti/"><img src="static/인스타.jpg" width: 225px height="100px"></a></div>
+                    <div class="box3-3"><a href="https://mindtest.travelmakerkorea.com/"><img src="static/현지인.jpg" width: 225px height="100px"></a></div>
                 </div>
         </section>
         <footer>
-            <div class="box4">
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    <br>Sapiente ipsa aperiam placeat, esse molestias soluta suscipit quam facilis, ipsum, voluptatem culpa cum nobis alias ullam.
-                    <br>Libero sunt explicabo consectetur laborum!
-                </p>
-            </div>
         </footer>
 {% endblock %}

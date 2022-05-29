@@ -99,3 +99,8 @@ def delete_answer(comment_id):
     db.session.delete(comment)
     db.session.commit()
     return redirect(url_for('question.detail', question_id=question_id))
+
+@bp.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')

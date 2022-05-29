@@ -20,3 +20,16 @@ def index():
 @bp.route('/introduce')
 def introduce():
     return render_template('category/introduce.html')
+
+@bp.route('/call')
+def call():
+    return render_template('category/call.html')
+
+@bp.route('/alert')
+def alert():
+    return render_template('category/alert.html')
+
+@bp.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')

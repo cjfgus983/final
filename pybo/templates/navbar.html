@@ -24,14 +24,14 @@
                                 <ul id="main-menu">
                                   <li><a href="#" class="category">카테고리</a>
                                     <ul id="sub-menu">
-                                      <li><a href="{{ url_for('question._list')}}" aria-label="subemnu">고민 게시판</a></li>
+                                      <li><a href="{{ url_for('question._list')}}" aria-label="subemnu">자유 게시판</a></li>
                                       <li><a href="{{ url_for('memo._list')}}" aria-label="subemnu">메모 게시판</a></li>
-                                      <li><a href="#" aria-label="subemnu">투표 게시판</a></li>
+                                      <li><a href="{{ url_for('gomin._list')}}" aria-label="subemnu">고민 게시판</a></li>
                                     </ul>
                                   </li>
                                   <li><a href="{{url_for('main.introduce')}}">소개</a></li>
-                                  <li><a href="#">공지</a></li>
-                                  <li><a href="#">문의</a></li>
+                                  <li><a href="{{url_for('main.alert')}}">공지</a></li>
+                                  <li><a href="{{url_for('main.call')}}">문의</a></li>
                                 </ul>
                             </nav>
             </div>

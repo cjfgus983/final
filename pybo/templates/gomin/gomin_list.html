@@ -1,6 +1,12 @@
+<style>
+    #click{background-color: #3A9D5F;}
+    #button{background-color: #3A9D5F; border-radius: 100px; padding: 5px 15px;}
+    body{margin:0; display: flex; justify-content: center; flex-direction: column;}
+        #xwarp{margin:auto; width:1000px;}
+</style>
 {% extends 'base.html' %}
 {% block content %}
-<div class = "container my-3">
+<div id="xwarp" class = "container my-3">
     <div class="row justify-content-end my-3">
         <div class="col-2">
             <select class="form-control so">
@@ -49,7 +55,7 @@
         {% endfor %}
         {% else %}
         <tr>
-            <td colspan="3">질문이 없습니다.</td>
+            <td colspan="3">고민이 없습니다.</td>
         </tr>
         {% endif %}
         </tbody>
@@ -73,7 +79,7 @@
                     <a class = "page-link" data-page="?page={{page_num}}">{{page_num}}</a>
                 </li>
                 {% else %}
-                <li class="page-item active" aria-current="page">
+                <li id="click" class="page-item active" aria-current="page">
                     <a class="page-link" href="#">{{page_num}}</a>
                 </li>
                 {% endif %}
@@ -95,7 +101,7 @@
         {% endif %}
     </ul>
     <!--페이징처리 끝-->
-    <a href="{{url_for('gomin.create')}}" class="btn btn-primary">질문 등록하기</a>
+    <a href="{{url_for('gomin.create')}}" id="button" class="btn btn-primary">고민 등록하기</a>
 </div>
 <form id="searchForm" method="get" action="{{ url_for('gomin._list') }}">
     <input type="hidden" id="kw" name="kw" value="{{ kw or '' }}">

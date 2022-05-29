@@ -5,11 +5,11 @@ from wtforms.fields import EmailField
 from wtforms.validators import DataRequired, Length, EqualTo, Email
 
 class QuestionForm(FlaskForm):
-    subject = StringField('제목',validators=[DataRequired('제목 입력하셈')])
-    content = TextAreaField('내용',validators=[DataRequired('내용 입력하셈')])
+    subject = StringField('제목',validators=[DataRequired('제목을 입력해주세요')])
+    content = TextAreaField('내용',validators=[DataRequired('내용을 입력해주세요')])
 
 class AnswerForm(FlaskForm):
-    content = TextAreaField('내용',validators=[DataRequired('내용 입력하셈')])
+    content = TextAreaField('내용',validators=[DataRequired('내용을 입력해주세요')])
 
 class UserCreateForm(FlaskForm):
     username = StringField('사용자이름', validators=[DataRequired(), Length(min=3,max=25)])
@@ -26,11 +26,11 @@ class CommentForm(FlaskForm):
     content = TextAreaField('내용', validators=[DataRequired()])
 
 class memoForm(FlaskForm):
-    content = TextAreaField('내용', validators=[DataRequired('내용 입력하셈')])
+    content = TextAreaField('내용', validators=[DataRequired('내용을 입력해주세요')])
 
 class GominForm(FlaskForm):
-    subject = StringField('제목',validators=[DataRequired('제목 입력하셈')])
-    content = TextAreaField('내용',validators=[DataRequired('내용 입력하셈')])
+    subject = StringField('제목',validators=[DataRequired('제목을 입력해주세요')])
+    content = TextAreaField('내용',validators=[DataRequired('내용을 입력해주세요')])
 
 class Gomin_AnswerForm(FlaskForm):
-    content = TextAreaField('내용',validators=[DataRequired('내용 입력하셈')])
+    content = TextAreaField('내용',validators=[DataRequired('내용을 입력해주세요')])
