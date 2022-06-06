@@ -232,6 +232,7 @@ position: relative;
 
                 #sub-menu > li >  a {
                 color:#3A9D5F;
+
                 text-decoration: none;
                 font-size: 0.85rem;
                 }
@@ -239,6 +240,7 @@ position: relative;
                 #main-menu > li:hover #sub-menu {
                 opacity: 1;
                 visibility: visible;
+                width:104px;
                 }
 
                 #sub-menu > li >  a:hover {
