@@ -155,8 +155,8 @@
 
                 <div class="box3-1">
                     <div class="box3-2"><a href="{{ url_for('question._list')}}"><img src="static/자유게시판.jpg" height="60px"></a></div>
-                    <div class="box3-2"><a href=""><img src="static/메모게시판.jpg" height="60px"></a></div>
-                    <div class="box3-2"><a href=""><img src="static/고민게시판.jpg" height="60px"></a></div>
+                    <div class="box3-2"><a href="{{ url_for('memo._list')}}"><img src="static/메모게시판.jpg" height="60px"></a></div>
+                    <div class="box3-2"><a href="{{ url_for('gomin._list')}}"><img src="static/고민게시판.jpg" height="60px"></a></div>
                 </div>
             <div class ="flex-box">
                 <div class="flex-cont">
@@ -164,7 +164,7 @@
                     <div class="free">
                         <div class="miniBar">
                             <a href="#" onclick="return false;">자유게시판</a>
-                            <a href="#">+더보기</a>
+                            <a href="{{ url_for('question._list')}}">+더보기</a>
                         </div>
                         {% if question_list %}
                         {% for question in question_list.items %}
@@ -185,7 +185,7 @@
                     <div class="gomin">
                         <div class="miniBar">
                             <a href="#" onclick="return false;">고민게시판</a>
-                            <a href="#">+더보기</a>
+                            <a href="{{ url_for('gomin._list')}}">+더보기</a>
                         </div>
                         {% if gomin_list %}
                         {% for gomin in gomin_list.items %}
@@ -206,8 +206,8 @@
                 <!--메모-->
                 <div class="memo" id="col">
                     <div class="miniBar">
-                        <a href="#" onclick="return false;">고민게시판</a>
-                        <a href="#">+더보기</a>
+                        <a href="#" onclick="return false;">메모게시판</a>
+                        <a href="{{ url_for('memo._list')}}">+더보기</a>
                     </div>
                 </div>
                 <div class ="memo">
