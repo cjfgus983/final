@@ -2,14 +2,18 @@
 {% block content %}
 <head>
     <style>
-        #click{background-color: #3A9D5F;}
-        #button{background-color: #3A9D5F; border-radius: 100px; padding: 5px 15px;}
         body{margin:0; display: flex; justify-content: center; flex-direction: column;}
         #xwarp{margin:auto; width:1000px;}
+        #subject{color : #3A9D5F; text-decoration:none;}
+        #click{background-color: #3A9D5F; border-color : #3A9D5F; color : white; font-weight : normal;}
+        .page-item a {color : #3A9D5F;}
+        .page-item a:hover {color : #3A9D5F; font-weight : bold;}
+        .disabled a {color : #3A9D5F;}
+        #button{background-color: #3A9D5F; border: 0px; border-radius: 100px; padding: 8px 15px;}
     </style>
 </head>
 <body>
-    <div  id="xwarp" class = "container my-3">
+    <div id="xwarp" class = "container my-3">
         <div class="row justify-content-end my-3">
             <div class="col-2">
                 <select class="form-control so">
@@ -46,7 +50,7 @@
                     {% endif %}
                 </td>
                 <td class="text-left">
-                    <a href="{{ url_for('question.detail',question_id=question.id)}}">{{ question.subject }}</a>
+                    <a id="subject" href="{{ url_for('question.detail',question_id=question.id)}}">{{ question.subject }}</a>
                     {% if question.answer_set|length>0 %}
                     <span class = "text-danger small ml-2">{{question.answer_set|length}}
                     {% endif %}
@@ -64,11 +68,11 @@
             </tbody>
         </table>
         <!--페이징처리시작-->
-        <ul class="pagination justify-content-center">
+        <ul id="basic" class="pagination justify-content-center">
             <!--이전페이지-->
             {% if question_list.has_prev %}
             <li class="page-item">
-                <a class="page-link" data-page="?page={{question_list.prev_num }}">이전</a>
+                <a class="page-link" href="?page={{question_list.prev_num }}">이전</a>
             </li>
             {% else %}
             <li class="page-item disabled">
@@ -79,11 +83,11 @@
                 {% if page_num %}
                     {% if page_num != question_list.page %}
                     <li class="page-item">
-                        <a class = "page-link" data-page="?page={{page_num}}">{{page_num}}</a>
+                        <a class = "page-link" href="?page={{page_num}}">{{page_num}}</a>
                     </li>
                     {% else %}
-                    <li id="click" class="page-item active" aria-current="page">
-                        <a class="page-link" href="#">{{page_num}}</a>
+                    <li class="page-item active" aria-current="page">
+                        <a id="click" class="page-link" href="#">{{page_num}}</a>
                     </li>
                     {% endif %}
                 {% else %}
@@ -95,7 +99,7 @@
             <!-- 다음페이지-->
             {% if question_list.has_next %}
             <li class="page-item">
-                <a class="page-link" data-page="?page={{question_list.next_num}}">다음</a>
+                <a class="page-link" href="?page={{question_list.next_num}}">다음</a>
             </li>
             {% else %}
             <li class="page-item disabled">

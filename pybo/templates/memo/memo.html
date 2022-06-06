@@ -62,16 +62,6 @@
                 });
 
             });
-            $(document).ready(function() {
-                $('#memo').on('keyup', function() {
-                    $('#test_cnt').html("("+$(this).val().length+" / 200)");
-
-                    if($(this).val().length > 200) {
-                        $(this).val($(this).val().substring(0, 200));
-                        $('#test_cnt').html("(200 / 100)");
-                    }
-                });
-            });
 
         </script>
         <style type="text/css">
@@ -83,6 +73,7 @@
             .memo-button{display:block; height: 238px; width: 238px; text-align: center; margin: 5px; background-color: #3A9D5F; border-radius: 30px; color: white; border:0 solid white;}
             .memo-box{display:flex; justify-content: center; align-content: center; height: 238px; width: 238px; text-align: center; margin: 5px; background-color: white; border-radius: 30px; color: #3A9D5F; border:1px solid #3A9D5F;}
             .memo-box a{margin:auto; width: 200px; text-decoration: none; color: #3A9D5F; overflow: hidden; word-break: break-all;}
+            .memo-button:focus{outline:none;}
             /*팝업창 css*/
             #popup{overflow:hidden; height:400px; display:block; background-color: white; border:2px solid #3A9D5F; border-radius:40px; border-color: #3A9D5F; width:400px; z-index:100; position:absolute;  top:20%; left:10%;}
             .close {display:block; margin-left: auto; padding-top:15px; padding-right:20px; padding-bottom: 10px; color:#3A9D5F; text-decoration: none;}
@@ -94,6 +85,11 @@
             .popCont #submit{display:block; margin: auto; margin-top: 20px; background-color: #3A9D5F; border-radius: 30px; color: white; padding:5px 15px;border:0 solid white;}
             .bgLayer {display:none;position:absolute; top:0; left:0; width:100%; height:100%; background:#000; opacity:.5; filter:alpha(opacity=50); z-index:10;}  /* z-index가 10이다. 이보다 위에 보이기 위해선 팝을 이보다 크게 설정해야한다. */
             textarea:focus {outline: none;}
+            #click{background-color: #3A9D5F; border-color : #3A9D5F; color : white; font-weight : normal;}
+            .page-item a {color : #3A9D5F;}
+            .page-item a:hover {color : #3A9D5F; font-weight : bold;}
+            .disabled a {color : #3A9D5F;}
+            #numbox{margin-top: 15px;}
         </style>
     </head>
     <body>
@@ -113,7 +109,7 @@
                 </ul>
                 {% endfor %}
             {% else %}
-            <p>노질문</p>
+            <p>질문이 없습니다</p>
             {% endif %}
 
         </div>
@@ -129,14 +125,14 @@
                     <form action="{{url_for('memo.create')}}"class="popCont" method="post">
                         {{ form.csrf_token }}
                         <textarea id="memo" type="text" name="content" rows="1"maxlength="200" placeholder="메모를 작성하시오." onfocus="this.placeholder=''" onblur="this.placeholder='메모를 작성하시오.'"></textarea>
-                        <div id="test_cnt" style="font-size:10pt";>(0 / 200)</div>
+                        <div id="test_cnt" style="font-size:10pt";>최대 200자</div>
                         <input type="submit" id="submit" name="저장" value="메모등록">
                     </form>
                 </div>
         </div>
         <!--팝업창 끝-->
     <!--페이징처리시작-->
-            <ul class="pagination justify-content-center">
+            <ul id="numbox" class="pagination justify-content-center">
                 <!--이전페이지-->
                 {% if memo_list.has_prev %}
                 <li class="page-item">
@@ -155,7 +151,7 @@
                         </li>
                         {% else %}
                         <li class="page-item active" aria-current="page">
-                            <a class="page-link" href="#">{{page_num}}</a>
+                            <a id="click" class="page-link" href="#">{{page_num}}</a>
                         </li>
                         {% endif %}
                     {% else %}

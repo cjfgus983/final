@@ -3,7 +3,7 @@
 <style>
     *{margin: 0;}
     .warp{height: 100%; width: 1000px; margin: 0 auto; padding: 0; display: flex; justify-content: center; flex-direction: column; flex-wrap: wrap; align-content: space-around;}
-    .title{font-size: 16px; width:990px; color: #3A9D5F; border-bottom: 1px solid #3A9D5F; margin: auto; margin-top: 20px; padding-bottom: 10px;}
+    .title{font-size: 16px; color: #3A9D5F; border-bottom: 1px solid #3A9D5F; margin: auto; margin-top: 20px; padding-bottom: 10px;}
     .title-box{height: 35px; width: 990px; margin: auto; margin-top: 20px; padding-left: 15px; border-radius: 100px; border: 1px solid #3A9D5F;}
     .content-box{height: 400px; width: 990px; margin: auto; margin-top: 20px; margin-bottom: 20px; padding-left: 15px; padding-top: 10px; border-radius: 20px; border: 1px solid #3A9D5F;resize: none;}
     input:focus {outline: none;}
@@ -12,8 +12,7 @@
     button:focus {outline: none;}
 </style>
 <div class="warp">
-    <h5 class="title">질문등록</h5>
-    <form method="post" class="post-form my-3">
+    <form method="post">
         {{ form.csrf_token }}
         <!-- 오류표시 Start -->
         {% for field, errors in form.errors.items() %}
@@ -22,6 +21,7 @@
         </div>
         {% endfor %}
         <!-- 오류표시 End -->
+        <h5 class="title">질문등록</h5>
         <div>
             <input type="text" class="title-box" name="subject" id="subject"
                    value="{{ form.subject.data or '' }}">
