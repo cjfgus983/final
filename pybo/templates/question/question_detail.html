@@ -44,7 +44,7 @@
                             </div>
                             {% endif %}
                             <div class="badge badge-light p-2 text-left">
-                                <div class="mb-2">{{ question.user.username }}</div>
+                                <div class="mb-2">{{ question.user.mbti }}</div>
                                 <div>{{ question.create_date|datetime }}</div>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                             <div class="comment py-2 text-muted" id="small_text">
                                 <span style="white-space: pre-line;">{{ comment.content }}</span>
                                 <span>
-                                    - {{ comment.user.username }}, {{ comment.create_date|datetime }}
+                                    - {{ comment.user.mbti }}, {{ comment.create_date|datetime }}
                                     {% if comment.modify_date %}
                                     (수정:{{ comment.modify_date|datetime }})
                                     {% endif %}
@@ -108,7 +108,7 @@
                             </div>
                             {% endif %}
                             <div class="badge badge-light p-2 text-left">
-                                <div class="mb-2">{{ answer.user.mbti }}{{ answer.user_id}}</div>
+                                <div class="mb-2">{{ answer.user.mbti }}</div>
                                 <div>{{ answer.create_date|datetime }}</div>
                             </div>
                         </div>
